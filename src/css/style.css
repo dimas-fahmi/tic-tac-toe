@@ -1,0 +1,232 @@
+body {
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+button.next-round-button {
+  font-size: 0.4em;
+  background-color: var(--accent-secondary);
+  padding: 5px 8px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+.container-grid {
+  display: grid;
+  grid-template-areas:
+    "score turn"
+    "board timeline";
+  grid-template-columns: 0.6fr 0.4fr;
+  grid-template-rows: 7rem auto;
+  gap: 1rem;
+  min-width: 520px;
+  min-height: 480px;
+
+  & > div {
+    padding: 12px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+    -moz-box-shadow: var(--shadow);
+  }
+
+  & > .score {
+    grid-area: score;
+    background-color: var(--secondary);
+  }
+
+  & > .turn {
+    grid-area: turn;
+    background-color: var(--secondary);
+  }
+
+  & > .board {
+    grid-area: board;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  & > .timeline {
+    grid-area: timeline;
+    background-color: var(--secondary);
+  }
+}
+
+.container-grid .score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  & > .header {
+    color: var(--text-light);
+    line-height: 1em;
+
+    & h4:first-child {
+      font-size: 1.2em;
+    }
+  }
+
+  & > .content {
+    margin-top: 5px;
+
+    & > .score-board {
+      display: flex;
+      width: 70%;
+      margin: auto;
+      background-color: var(--accent-secondary);
+      border-radius: 24px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 1.2em;
+
+      & > .home,
+      & > .away {
+        display: grid;
+        place-content: center;
+      }
+
+      & > .home {
+        color: var(--primary);
+      }
+
+      & > .away {
+        color: var(--text-accent);
+      }
+
+      & > .score {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        & > div {
+          padding: 2px 5px;
+          text-align: center;
+          min-width: 30px;
+        }
+
+        & > .home {
+          color: var(--text-accent);
+          background-color: var(--accent-primary);
+        }
+
+        & > .away {
+          color: var(--accent-primary);
+          background-color: var(--text-accent);
+        }
+      }
+    }
+  }
+}
+
+.container-grid .turn {
+  & > .header {
+    font-size: 1.2em;
+    color: var(--primary);
+  }
+
+  & > .content {
+    font-size: 2.5em;
+    padding: 0;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1em;
+  }
+}
+
+.container-grid .board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 0;
+  gap: 1px;
+
+  & > .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 2em;
+    cursor: pointer;
+    background-color: var(--secondary);
+  }
+
+  & > .square:hover {
+    background-color: var(--accent-secondary);
+  }
+
+  & > .square:active {
+    background-color: var(--secondary);
+  }
+}
+
+.container-grid .timeline {
+  display: grid;
+  grid-template-rows: 2rem auto 5rem;
+
+  & > .header {
+    font-size: 1.2em;
+    height: fit-content;
+    line-height: 1em;
+    color: var(--primary);
+  }
+
+  & > .content {
+    & .timeline-card {
+      border-radius: 10px;
+      min-height: 61px;
+      max-height: 61px;
+      background-color: var(--accent-primary);
+      display: flex;
+      flex-direction: column;
+      line-height: 1em;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    & .timeline-card.o {
+      background-color: var(--text-accent);
+      color: var(--accent-primary);
+    }
+  }
+
+  & > .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+
+    & > div h2 {
+      line-height: 1em;
+      font-size: 2em;
+    }
+
+    & > div h4 {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .container-grid {
+    transform: scale(0.8);
+    margin: auto;
+  }
+}

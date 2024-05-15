@@ -1,0 +1,16 @@
+:root {
+  /* COLORS */
+  --primary: #fe91e3;
+  --secondary: #2a242b;
+  --accent: #12151c;
+  --accent-light: #b7d6ff;
+  --accent-primary: #e151af;
+  --accent-secondary: #553c46;
+  /* GENERALS */
+  --text-light: #fff;
+  --text-dark: #000;
+  --text-accent: #f1cf54;
+  --text-accent-dark: #6752d8;
+  /* shadow */
+  --shadow: -3px 4px 13px 3px rgba(0, 0, 0, 0.4);
+}
